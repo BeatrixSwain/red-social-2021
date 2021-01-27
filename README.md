@@ -34,5 +34,5 @@ Emphasis -> Aquí no sirve el enter -> Sino...
 <!-- Comentario !-->
 
 # Imágenes
-![Imagen](api\uploads\users\8f6ap0j5wsV-HA6iQRxssGiN.jpg)
+![Imagen](api/uploads/users/8f6ap0j5wsV-HA6iQRxssGiN.jpg)
 
