@@ -1,5 +1,12 @@
 # REDSOCIAL 2021 - Test
-## Ejemplos de markdown.
+## Cambios febrero 2021 - Inicio git.
+
+
+
+
+
+---
+
 Las cabeceras dependen del número de # delante.
 
 Underline 1
