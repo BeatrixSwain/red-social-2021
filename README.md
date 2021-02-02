@@ -5,6 +5,8 @@
 - Clase nueva de publicaciones (Controller, routes, mod app.js)
 - Clase nueva de mensajería privada (Controller, routes, mod app.js)
 
+Fin de backend. (En principio)
+
 
 
 
