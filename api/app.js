@@ -11,7 +11,7 @@ var app = express();
 var user_routes = require('./routes/user'); //configuracion de rutas de user
 var pruebas_routes = require('./routes/pruebas'); //configuracion de rutas de user
 var follow_routes = require('./routes/follow');
-
+var publication_routes = require('./routes/publication');
 
 
 //middlewares -> método antes de que llegue a un controlador. En cada peticion se ejecuta.
@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 app.use('/api', user_routes); //pone delante la ruta de /api/ --> /api/rutadelmetodo
 app.use('/test', pruebas_routes); //pone delante la ruta de /api/ --> /api/rutadelmetodo
 app.use('/follow', follow_routes); 
+app.use('/publication', publication_routes);//02.02.2021
 
 ////////////////////////////////////////////////
 

@@ -1,10 +1,11 @@
 //30.12.2020
 //Controlador de usuarios
-//BeatrixSwain - Zuri
+//BeatrixSwain - Zuri Todas las pass son Zuri
 
 'use strict'
 
 var User = require('../models/user');//../ para salir de la carpeta actual..
+var Publication = require('../models/publication');//02.02.2021
 var bcrypt = require('bcrypt-nodejs');
 var jwt = require('../services/jwt');
 //const { param } = require('../routes/user');
@@ -244,16 +245,12 @@ async function followThisUserIds(user_id) {
 function getCounters(req, res){
     var userId = req.user.sub;
     if(req.params.id){
-        getCountFollow(req.params.id).then((value)=>{
-            return res.status(200).send(value);
-        });
-
-    }else{
-        getCountFollow(userId).then((value)=>{
-            return res.status(200).send(value);
-        });
-
+        userId = req.params.id;
     }
+
+    getCountFollow(userId).then((value)=>{
+            return res.status(200).send(value);
+        });
 
 
 }
@@ -273,7 +270,14 @@ async function getCountFollow(user_id){
         return handleError(err);    
     });
 
-    return {following:following, followed:followed}
+    var publications = await Publication.count({"user":user_id}).exec().then((count)=>{
+        return count;
+
+    }).catch((err) => {    
+        return handleError(err);    
+    });
+
+    return {following:following, followed:followed, publications: publications}
 
 }
 

@@ -1,5 +1,11 @@
 # REDSOCIAL 2021 - Test
 ## Cambios febrero 2021 - Inicio git.
+02.02.2021
+- Método de usuarios counters
+- Clase nueva de publicaciones (Controller, routes, mod app.js)
+- Clase nueva de mensajería privada (Controller, routes, mod app.js)
+
+
 
 
 
