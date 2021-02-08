@@ -7,9 +7,13 @@
 
 Fin de backend. (En principio)
 
-04.02.2021
+08.02.2021
+Creación de angular
+> npm install -g @angular/cli@latest
 
+> ng new NOMBRE_DEL_PROYECTO_ANGULAR5
 
+Creación de modelos, componente de login, registro, routes y además limpieza de componente inicial.
 
 
 
