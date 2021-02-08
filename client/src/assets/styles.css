@@ -1,0 +1,18 @@
+/* 08.02.2021 */
+/*Cabecera*/
+.navigation{
+    margin: 0px;
+    padding: 0px !important;
+    background-color: orange!important;
+
+}
+
+.navigation .navbar{
+    border-radius: 0px !important;
+    background-color: orange!important;
+    border: none !important;
+}
+
+.navigation .navbar *{
+    color: white !important;
+}
