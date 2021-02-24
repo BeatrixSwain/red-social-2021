@@ -38,6 +38,9 @@ app.use('/test', pruebas_routes); //pone delante la ruta de /api/ --> /api/rutad
 app.use('/follow', follow_routes); 
 app.use('/publication', publication_routes);//02.02.2021
 app.use('/msg', message_routes);//02.02.2021
+app.use('/api', follow_routes); 
+app.use('/api', publication_routes);//02.02.2021
+app.use('/api', message_routes);//02.02.2021
 ////////////////////////////////////////////////
 
 

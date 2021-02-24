@@ -1,9 +1,21 @@
 /* 08.02.2021 */
+/*Generales*/
+.h1-strong{
+    font-size: 35px;
+    font-weight: bold;
+    margin-left:13px;
+    padding-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1pz solid #eee;
+}
+
 /*Cabecera*/
 .navigation{
     margin: 0px;
     padding: 0px !important;
     background-color: orange!important;
+    float: none !important;
 
 }
 
@@ -16,3 +28,4 @@
 .navigation .navbar *{
     color: white !important;
 }
+

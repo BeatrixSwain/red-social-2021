@@ -1,5 +1,11 @@
 # REDSOCIAL 2021 - Test
 ## Cambios febrero 2021 - Inicio git.
+24.02.2021
+- Para que funcionen los iconos, tuve que modificar redsocial\client\node_modules\bootstrap\dist\css\bootstrap.css (266,267). Añadir un .. extra.
+- Formulario en register.component y sus eventos.
+- HttpClientModule > app.module
+- Servicio de usuario: 
+
 02.02.2021
 - Método de usuarios counters
 - Clase nueva de publicaciones (Controller, routes, mod app.js)
