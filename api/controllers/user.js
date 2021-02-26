@@ -119,7 +119,7 @@ function loginUser(req, res){
                         }else{
                             //devolver los datos deel usuario en claro.
                             user.password = undefined;  //Eliminar la contraseña para que no se envie.
-                            return res.status(200).send(user);
+                            return res.status(200).send({user});
                         }
                        
                     }else{

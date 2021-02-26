@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit{
     }
 
     onSubmit(form:any){
-        console.log("uwu");
+        //Registrar al usuario enviado - 
         this._userService.register(this.user).subscribe( 
             response =>{
                 if(response.user && response.user._id){

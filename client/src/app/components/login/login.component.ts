@@ -32,11 +32,14 @@ export class LoginComponent implements OnInit{
     }
 
     onSubmit(form:any){
-        console.log("uwu desde onsubmit login");
+        //Loguear al usuario y conseguir sus datos
         this._userService.login(this.user).subscribe( 
             response =>{      
+                console.log("Response")
+                console.log(response);
                 console.log("Identity");
-                this.identity = response;
+              //  console.log(response);
+                this.identity = response.user;
                 console.log(  this.identity);
 
                 if(!this.identity||!this.identity._id){
@@ -44,16 +47,23 @@ export class LoginComponent implements OnInit{
                 }else{
                     this.status  = 'success';
                     //Persistir datos del usuario
-
+                    //en el local storage -> pequeña memoria del navegador web. almacenamiento local, cada url tiene la propia.
+                    localStorage.setItem('identity', JSON.stringify(this.identity));
+                    this._userService.getIdentity();
                     //Conseguir token
                     this.getToken();
                 }
                 //form.reset();               
             }, error=>{
-                var errorMessage =<any>error;
                 console.log(<any>error);
+                var errorMessage =<any>error.error.message;
+                console.log(errorMessage);
                 if(errorMessage!=null){
-                    this.status = 'Hubo un error';
+                    if(errorMessage!=null){
+                        this.status = 'Hubo un error: '+errorMessage;
+                    }else{
+                        this.status = 'Hubo un error: ';
+                    }
                 }
             }
         );
@@ -61,7 +71,7 @@ export class LoginComponent implements OnInit{
     }
 
     public getToken(){
-        console.log("uwu desde getToken login");
+        //Get token
         this._userService.login(this.user, "true").subscribe( 
             response =>{             
                 this.token = response.token;
@@ -70,11 +80,11 @@ export class LoginComponent implements OnInit{
                 }else{
                     this.status  = 'success';
                     console.log(this.token);
-                    //Conseguir contadores
+                    //Persistir token del usuario
+                    localStorage.setItem('token', this.token);
 
                     //Conseguir estadisticas
                 }
-                //form.reset();               
             }, error=>{
                 var errorMessage =<any>error;
                 console.log(<any>error);

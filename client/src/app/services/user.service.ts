@@ -11,6 +11,8 @@ import { GLOBAL } from  './global';
 @Injectable() 
 export class UserService{
     public url: string;
+    public identity:any;
+    public token:any;
     constructor(public _http:HttpClient){
             this.url = GLOBAL.url;
     }
@@ -33,5 +35,37 @@ export class UserService{
         let params = JSON.stringify(user);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.post(this.url+'login',params, {headers:headers} );
+    }
+
+    getIdentity(){
+        let getItem = localStorage.getItem('identity');
+        let identity = null;
+        if(getItem!=null){
+            if(getItem != 'undefined'){
+                identity = JSON.parse(getItem||'undefined');               
+                if(identity!='undefined'){
+                    this.identity = identity;
+                    console.log("Get Identity: ")
+                    console.log(identity);
+                }
+                
+            }else{
+                console.log("getItem: "+getItem);
+            }
+        }else{
+            console.log("getItem: "+getItem);           
+        }
+
+      return this.identity;
+    }
+
+    getToken(){
+        let token = localStorage.getItem('token');     
+        if(token !='undefined'){
+           this.token = token;
+        }else{
+            this.token = null;
+        }
+        return this.token;
     }
 }
