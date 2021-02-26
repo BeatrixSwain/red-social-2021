@@ -44,19 +44,13 @@ export class UserService{
             if(getItem != 'undefined'){
                 identity = JSON.parse(getItem||'undefined');               
                 if(identity!='undefined'){
-                    this.identity = identity;
-                    console.log("Get Identity: ")
-                    console.log(identity);
+                    this.identity = identity;                  
                 }
                 
-            }else{
-                console.log("getItem: "+getItem);
             }
-        }else{
-            console.log("getItem: "+getItem);           
         }
 
-      return this.identity;
+        return this.identity;
     }
 
     getToken(){

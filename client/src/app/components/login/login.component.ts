@@ -35,13 +35,8 @@ export class LoginComponent implements OnInit{
         //Loguear al usuario y conseguir sus datos
         this._userService.login(this.user).subscribe( 
             response =>{      
-                console.log("Response")
-                console.log(response);
-                console.log("Identity");
               //  console.log(response);
-                this.identity = response.user;
-                console.log(  this.identity);
-
+                this.identity = response.user;             
                 if(!this.identity||!this.identity._id){
                     this.status = 'error';
                 }else{
@@ -79,7 +74,6 @@ export class LoginComponent implements OnInit{
                     this.status = 'error';
                 }else{
                     this.status  = 'success';
-                    console.log(this.token);
                     //Persistir token del usuario
                     localStorage.setItem('token', this.token);
 
