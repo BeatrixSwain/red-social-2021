@@ -13,6 +13,7 @@ export class UserService{
     public url: string;
     public identity:any;
     public token:any;
+    public stats:any;
     constructor(public _http:HttpClient){
             this.url = GLOBAL.url;
     }
@@ -44,12 +45,13 @@ export class UserService{
             if(getItem != 'undefined'){
                 identity = JSON.parse(getItem||'undefined');               
                 if(identity!='undefined'){
-                    this.identity = identity;                  
+                    this.identity = identity;   
+                    return this.identity;              
                 }
                 
             }
         }
-
+        this.identity = identity;
         return this.identity;
     }
 
@@ -61,5 +63,42 @@ export class UserService{
             this.token = null;
         }
         return this.token;
+    }
+
+    getCounters(userId:any=null):Observable<any>{
+
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                        .set('Authorization', this.getToken());
+         if(userId!=null){
+            return this._http.get(this.url+'counters/'+userId, {headers:headers});
+         }else{
+            return this._http.get(this.url+'counters', {headers:headers});
+
+         }
+    }
+
+    getStats(){
+        let getItem = localStorage.getItem('stats');
+        let stats = null;
+        if(getItem!=null){
+            if(getItem != 'undefined'){
+                stats = JSON.parse(getItem||'undefined');               
+                if(stats!='undefined'){
+                    this.stats = stats;   
+                    return this.stats;              
+                }
+                
+            }
+        }
+        this.stats = stats;
+        return this.stats;        
+    }
+ 
+    updateUser(user:any):Observable<any>{
+        let params = JSON.stringify(user);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                       .set('Authorization', this.getToken());
+        return this._http.put(this.url+"update-user/"+user._id, params,  {headers:headers} )                                
+
     }
 }

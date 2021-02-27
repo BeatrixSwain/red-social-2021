@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { UserService} from './services/user.service';
+import { Router, ActivatedRoute, Params} from '@angular/router';
+import { GLOBAL } from './services/global';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +9,32 @@ import { UserService} from './services/user.service';
   styleUrls: ['./app.component.css'],
   providers: [UserService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit, DoCheck {
   public title:string;
   public identity:any;
+  public url:string;
 
-  constructor(private _userService:UserService
+  constructor(
+    private _route: ActivatedRoute, 
+    private _router:Router,
+    private _userService:UserService 
   ){
     this.title = 'Wittian';
+    this.url=GLOBAL.url;
   }
 
   ngOnInit(){
     this.identity = this._userService.getIdentity();
-    console.log("... app.component.ts... identity");
-    console.log(this.identity);
+  }
 
+  ngDoCheck(){
+    //Cada vez que se produce un cambio en la app a nivel de componentes, se refresca una variable.
+    this.identity = this._userService.getIdentity();   
+  }
+
+  logout(){
+    this.identity = null;
+    localStorage.clear();   
+    this._router.navigate(['/']);
   }
 }

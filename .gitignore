@@ -1,7 +1,10 @@
-
+ejemplodereadme.md
 api/node_modules/
+api/uploads/messages
+api/uploads/publications
+api/uploads/users
 
-#Angular
+#Angular 
 # compiled output
 /client/dist
 /client/tmp

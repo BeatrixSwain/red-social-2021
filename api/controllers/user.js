@@ -15,6 +15,7 @@ var path = require('path');
 
 var Follow = require('../models/follow');
 const { listMyFollows } = require('./follow');
+const user = require('../models/user');
 //////////////////////////////////////////////////////////////////////////////
 
 /*function pruebaGet(req, res){
@@ -295,15 +296,42 @@ function updateUser(req, res){
         return res.status(500).send({message:'No tienes permiso para actualizar este usuario'});
     }
 
-    User.findByIdAndUpdate(userId, update, {new:true, useFindAndModify: false}, (err, userUpdate)=>{ 
-        //new -> devuelve el actualizado
-        //useFindAndModify -> para evitar un warning => DeprecationWarning: Mongoose: 
-        //`findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` 
-        //option set to false are deprecated. 
-        if(err) return res.status(500).send({message:'Error en la petición'});
-        if(!userUpdate) return res.status(404).send({message:'No se ha podido actualizar el usuario'});
+    User.find({
+        $or: [{email:update.email.toLowerCase()},
+            {nick:update.nick.toLowerCase()}
+        ]//or de mongodb
+    }).exec((err, users)=>{
+        if(err){ 
+            return res.status(500).send({message: 'Error al procesar su petición '+err});
+        }
 
-        return res.status(200).send({user:userUpdate});
+        var existe = false;
+        if(users){
+            users.forEach((user)=>{
+                if(user){                   
+                    if(user._id!=userId){
+                        existe = true; console.log(user);
+                    }
+                }
+            });        
+        }
+        
+        //////
+        if(existe){
+            return res.status(404).send({message: 'El nick/email ya está en uso'});
+        }
+        else{
+            User.findByIdAndUpdate(userId, update, {new:true, useFindAndModify: false}, (err, userUpdate)=>{ 
+                //new -> devuelve el actualizado
+                //useFindAndModify -> para evitar un warning => DeprecationWarning: Mongoose: 
+                //`findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` 
+                //option set to false are deprecated. 
+                if(err) return res.status(500).send({message:'Error en la petición'});
+                if(!userUpdate) return res.status(404).send({message:'No se ha podido actualizar el usuario'});
+
+                return res.status(200).send({user:userUpdate});
+            });
+         }
     });
 }
 
@@ -311,7 +339,6 @@ function updateUser(req, res){
 function uploadImage(req, res){
     var userId = req.params.id;//re
     
-
     if(req.files){
         if(Object.keys(req.files).length>0){
             var file_path = req.files.image.path;

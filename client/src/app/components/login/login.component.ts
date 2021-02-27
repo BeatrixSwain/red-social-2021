@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit{
                     localStorage.setItem('token', this.token);
 
                     //Conseguir estadisticas
+                    this.getCounters();
                 }
             }, error=>{
                 var errorMessage =<any>error;
@@ -87,6 +88,20 @@ export class LoginComponent implements OnInit{
                 }
             }
         );
+
+    }
+
+    getCounters(){
+        this._userService.getCounters().subscribe(
+            response=>{
+                console.log(response);       
+                localStorage.setItem("stats", JSON.stringify(response) ) ;
+                this._router.navigate(['/']);
+            },
+            error=>{
+                console.log(<any>error);
+            }
+        )
 
     }
 }
