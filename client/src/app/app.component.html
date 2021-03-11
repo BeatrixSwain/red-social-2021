@@ -1,12 +1,12 @@
 <div class="navigation col-lg-12">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-expand-lg">
       <div class="container-fluid">
         <div class="navbar-header"><a [routerLink]="['/test']"  class="navbar-brand">{{title}}</a></div>
       
       <ul class="nav navbar-nav" *ngIf="identity">
         <li><a [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio <span class="glyphicon glyphicon-home"></span></a></li>
         <li><a href="#">TimeLine <span class="glyphicon glyphicon-th-list"></span></a></li>
-        <li><a href="#">Gente <span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a [routerLink]="['/gente']" [routerLinkActive]="['active']">Gente <span class="glyphicon glyphicon-user"></span></a></li>
       </ul>
       <!--Si no está identificado-->
       <ul class="nav navbar-nav navbar-right" *ngIf="!identity">
@@ -33,6 +33,9 @@
 
     </div>
   </nav>
+
+
+  
 </div>
 
 <router-outlet></router-outlet>

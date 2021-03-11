@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TestComponent } from './components/test/test.component';
 import { AccountComponent } from './components/account/account.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegisterComponent,
     HomeComponent,
     TestComponent,
-    AccountComponent
+    AccountComponent,
+    ProfileComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

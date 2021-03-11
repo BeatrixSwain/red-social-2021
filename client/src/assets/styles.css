@@ -80,3 +80,40 @@
     margin-top: 7px;
     margin-right: 2px;
 }
+
+.user_name .nickname a{
+    color:orange;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.user_name .nickname{
+    margin-bottom: 0;
+}
+
+.user_name .name{
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.item-user .panel-body .avatar-list{
+    margin: 0px 10px 0px 0px;
+}
+
+.avatar-list{
+   border: 1px solid orange; 
+}
+
+.avatar-list{
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    overflow: hidden;
+    margin-top: 7px;
+    margin-right: 2px;
+}
+
+.avatar-list>a>img{
+    height: auto;
+    width: 38px;
+}

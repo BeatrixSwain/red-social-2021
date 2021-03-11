@@ -1,0 +1,32 @@
+<div class="col-lg-8">
+    <h1 class="h1-strong">{{title}}</h1>
+    <div class="people">
+        <!-- listado -->
+        <div *ngFor="let user of users" class="item-user">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="image-user pull-left avatar-list">
+                        <a  class="panel-user" href="#">
+                            <img src="{{ url+'get-image-user/'+user.image}}" *ngIf="user.image"/>
+                            <img src="assets/resources/user.png" *ngIf="!user.image"/>
+                        </a>                       
+                    </div>
+                    <div class="user_name pull-left">
+                        <p class="nickname">
+                            <a href="#">{{user.nick}}</a>
+                        </p>
+                        <p class="name">{{user.name+ ' '+user.surname}} </p>
+                    </div>
+
+                    <!--seguir dejar de seguir-->
+                </div>
+            </div>
+        </div>
+        <!--Navegación-->
+
+        <ul class="pagination pull-right">
+            <li *ngIf="page > 1"><a [routerLink]="['/gente', pre_page]">Anterior</a></li>
+            <li *ngIf="page < totalPages"><a [routerLink]="['/gente', next_page]">Siguiente</a></li>
+        </ul>
+    </div>
+</div>

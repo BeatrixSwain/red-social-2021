@@ -1,5 +1,8 @@
 # REDSOCIAL 2021
 ## Cambios febrero 2021 - Inicio git.
+### 11.03.2021
+- Sección de usuarios (gente)
+
 ### 24.02.2021
 - Para que funcionen los iconos, tuve que modificar redsocial\client\node_modules\bootstrap\dist\css\bootstrap.css (266,267). Añadir un .. extra.
 - Formulario en register.component y sus eventos.

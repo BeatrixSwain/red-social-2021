@@ -101,4 +101,17 @@ export class UserService{
         return this._http.put(this.url+"update-user/"+user._id, params,  {headers:headers} )                                
 
     }
+
+    getUsers(page:any=null):Observable<any>{ //Listado de usuarios
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                       .set('Authorization', this.getToken());
+        return this._http.get(this.url+"users/"+page,  {headers:headers} )                                
+    }
+
+    getUser(id:any):Observable<any>{//Para los perfiles de usuario
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                       .set('Authorization', this.getToken());
+        return this._http.get(this.url+"user/"+id,  {headers:headers} )                                
+    }
+
 }

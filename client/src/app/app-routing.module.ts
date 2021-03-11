@@ -7,7 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TestComponent } from './components/test/test.component';
 import { AccountComponent } from './components/account/account.component';
-import { ProfileComponent } from './components/profile/profile.component'
+import { ProfileComponent } from './components/profile/profile.component';
+import { UsersComponent } from './components/users/users.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,9 +17,11 @@ const appRoutes: Routes = [
   {path: 'registro', component:RegisterComponent},
   {path: 'test', component:TestComponent},
   {path: 'account', component:AccountComponent},
-  {path: 'profile', component:ProfileComponent}
+  {path: 'profile', component:ProfileComponent},
+  {path: 'gente/:page', component:UsersComponent},
+  {path: 'gente', component:UsersComponent},
 
-
+  {path:'**', component:HomeComponent} //Definir el path del 404
 ];
 
 export const AppRoutingProviders: any[] =[];
