@@ -11,7 +11,7 @@ var md_auth = require('../middlewares/authenticated');
 
 api.get('/pruebas', md_auth.ensureAuth, followController.prueba);
 api.post('/follow', md_auth.ensureAuth, followController.saveFollow);
-api.delete('/delete/:id', md_auth.ensureAuth, followController.deleteFollow);
+api.delete('/follow/:id', md_auth.ensureAuth, followController.deleteFollow);
 api.get('/following/:id?/:page?', md_auth.ensureAuth, followController.getFollowingUsers);
 api.get('/followers/:id?/:page?', md_auth.ensureAuth, followController.getFollowers);
 api.get('/myfollows', md_auth.ensureAuth, followController.getMyFollows);
