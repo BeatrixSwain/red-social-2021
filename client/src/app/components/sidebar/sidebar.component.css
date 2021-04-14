@@ -1,0 +1,71 @@
+.avatar-sidebar img {
+    max-width: 100%;
+}
+
+.avatar-sidebar {
+    border-radius: 100%;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    margin: 10px auto;
+}
+
+#user-card {
+    padding: 25px;
+}
+
+.name-surname {
+    border-bottom: 1px solid #ff7c3f;
+    margin-bottom: 15px;
+}
+
+.name-surname,
+.name-surname a {
+    color: orange;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+.name-surname span {
+    font-weight: bold;
+    padding-right: 10px;
+    text-transform: capitalize;
+}
+
+.following-data .lbl-stats,
+.following-data .number-stats {
+    display: block;
+    text-align: center;
+}
+
+.lbl-stats {
+    color: orange;
+    text-decoration: none;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.following-data a {
+    text-decoration: none;
+}
+
+.following-data {
+    width: 33.33%;
+}
+
+.following-data .number-stats {
+    color: #ff7c3f;
+}
+
+#new-publication {
+    padding-bottom: 20px;
+}
+
+#new-publication h3 {
+    color: orange;
+    font-weight: bold;
+}
+
+#new-publication p {
+    color: #ff7c3f;
+}

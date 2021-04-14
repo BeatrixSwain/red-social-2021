@@ -77,7 +77,36 @@ export class UserService{
          }
     }
 
-    getStats(){
+    getStats(){ //Hace la llamada de cero y guarda los stats en el local
+        this.getCounters().subscribe(
+            response=>{
+                // console.log(response);       
+                localStorage.setItem("stats", JSON.stringify(response) ) ;
+                
+            },
+            error=>{
+                console.log(<any>error);
+            }
+        )
+
+        let getItem = localStorage.getItem('stats');
+        let stats = null;
+        if(getItem!=null){
+            if(getItem != 'undefined'){
+                stats = JSON.parse(getItem||'undefined');               
+                if(stats!='undefined'){
+                    this.stats = stats;   
+                    return this.stats;              
+                }
+                
+            }
+        }
+        this.stats = stats;
+        return this.stats;        
+    }
+
+    getStatsLocal(){    //Sólo consulta el local storage
+
         let getItem = localStorage.getItem('stats');
         let stats = null;
         if(getItem!=null){

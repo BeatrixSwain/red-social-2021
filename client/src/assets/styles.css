@@ -1,78 +1,81 @@
 /* 08.02.2021 */
+
+
 /*Generales*/
-.h1-strong{
+
+.h1-strong {
     font-size: 35px;
     font-weight: bold;
-  /*  margin-left:13px;*/
+    /*  margin-left:13px;*/
     padding-bottom: 15px;
     margin-top: 15px;
     margin-bottom: 15px;
     border-bottom: 1px solid #eee;
 }
 
-.active{
-    background:#ff7c3f!important;    
+.active {
+    background: #ff7c3f!important;
 }
 
-.jumbotron{
-    padding:20px;
+.jumbotron {
+    padding: 20px;
     border-radius: 20px;
     border: 1px solid black;
     text-align: center;
 }
 
-.user-image-acc>img{
+.user-image-acc>img {
     max-width: 100%;
 }
 
+
 /*Cabecera*/
-.navigation{
+
+.navigation {
     margin: 0px;
     padding: 0px !important;
     background-color: orange!important;
     float: none !important;
-
 }
 
-.navigation .navbar-default .navbar-nav .dropdown .dropdown-menu>li *{
-    color:  orange!important;
-
+.navigation .navbar-default .navbar-nav .dropdown .dropdown-menu>li * {
+    color: orange!important;
 }
-.navigation .navbar{
+
+.navigation .navbar {
     border-radius: 0px !important;
     background-color: orange!important;
     border: none !important;
 }
 
-.navigation .navbar *{
+.navigation .navbar * {
     color: white !important;
 }
 
-
-.navigation .navbar a:hover{
-    background:#ff7c3f!important;    
+.navigation .navbar a:hover {
+    background: #ff7c3f!important;
 }
 
-
-.navigation .navbar  .dropdown-menu a:hover{
-    background:white!important;    
+.navigation .navbar .dropdown-menu a:hover {
+    background: white!important;
 }
 
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
-    background:#ff7c3f!important;    
-    
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+    background: #ff7c3f!important;
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
 }
 
-.avatar>img{
+.avatar>img {
     height: auto;
     width: 38px;
 }
 
-.avatar{
+.avatar {
     border-radius: 100%;
     height: 35px;
     width: 35px;
@@ -81,30 +84,31 @@
     margin-right: 2px;
 }
 
-.user_name .nickname a{
-    color:orange;
+.user_name .nickname a {
+    color: orange;
     text-decoration: none;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
-.user_name .nickname{
+.user_name .nickname {
     margin-bottom: 0;
 }
 
-.user_name .name{
+.user_name .name {
     margin-bottom: 0;
     font-style: italic;
 }
 
-.item-user .panel-body .avatar-list{
+.item-user .panel-body .avatar-list {
     margin: 0px 10px 0px 0px;
 }
 
-.avatar-list{
-   border: 1px solid orange; 
+.avatar-list {
+    border: 1px solid orange;
 }
 
-.avatar-list{
+.avatar-list {
     border-radius: 100%;
     height: 35px;
     width: 35px;
@@ -113,7 +117,7 @@
     margin-right: 2px;
 }
 
-.avatar-list>a>img{
+.avatar-list>a>img {
     height: auto;
     width: 38px;
 }
