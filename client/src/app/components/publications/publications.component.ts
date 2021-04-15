@@ -6,14 +6,14 @@ import { GLOBAL } from '../../services/global';
 import { PublicationService} from '../../services/publication.service'
 
 @Component({
-    selector: 'timeline',
-    templateUrl: './timeline.component.html',
-    styleUrls: ['./timeline.component.css'],
+    selector: 'publications',
+    templateUrl: './publications.component.html',
+    styleUrls: ['../timeline/timeline.component.css'],
     providers: [UserService, PublicationService]
 
 })
 
-export class TimelineComponent implements OnInit {
+export class PublicationsComponent implements OnInit {
     public title: string;
     public token: any;
     public identity: any;    
@@ -29,7 +29,7 @@ export class TimelineComponent implements OnInit {
 
     
     constructor(private _route: ActivatedRoute, private _router: Router, private _userService: UserService, private _publicationService:PublicationService) {
-        this.title = "Timeline";
+        this.title = "publications";
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
         this.status = "";
@@ -43,7 +43,7 @@ export class TimelineComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('Componente de TimelineComponent cargado...');
+        console.log('Componente de publications cargado...');
         this.getPublications(this.page);
     }
 
@@ -97,9 +97,5 @@ export class TimelineComponent implements OnInit {
             this.noMore=true;
          }
          this.getPublications(this.page, true);
-    }
-
-    refresh(event:any){
-        this.getPublications(1);
     }
 }

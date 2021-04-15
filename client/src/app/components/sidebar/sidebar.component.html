@@ -1,4 +1,4 @@
-<div id="user-card" class="col-lg-4 pull-left box-default">
+<div id="side-bard-user" class="col-lg-4 pull-left box-default">
     <div id="user-card" class="col-lg-12 panel panel-default pull-left box-default">
         <div class="container-avatar">
             <div class="avatar-sidebar">
@@ -40,7 +40,9 @@
     <!-- Formulario de publicaciones -->
     <div id="new-publication" class="col-lg-12 panel panel-default pull-left box-default">
         <h3>Crear publicación</h3>
-        <form #newPubForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-12">
+        <div class="alert alert-success" *ngIf="status=='success'">Se ha creado la publicación</div>
+        <div class="alert alert-danger" *ngIf="status=='error'">No se ha creado la publicación</div>
+        <form #newPubForm="ngForm" (ngSubmit)="onSubmit(newPubForm); sendPublication($event);" class="col-lg-12">
             <p>
                 <label>¿Qué piensas?</label>
                 <textarea name="text" #text="ngModel" [(ngModel)]="publication.text" class="form-control" required></textarea>

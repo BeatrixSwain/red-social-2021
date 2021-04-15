@@ -1,3 +1,30 @@
 .publications {
     min-height: 500px;
 }
+
+.item-publication h4 {
+    text-transform: capitalize;
+    color: #ff7c3f;
+}
+
+.avatar-list {
+    height: 75px!important;
+    width: 75px!important;
+    margin-right: 20px;
+}
+
+.avatar-list>a>img {
+    width: 78px!important;
+}
+
+.publication-text {
+    font-size: large;
+}
+
+.item-publication h4 span {
+    font-style: italic;
+    color: orange;
+    padding-left: 10px;
+    font-size: small;
+    text-transform: none!important;
+}

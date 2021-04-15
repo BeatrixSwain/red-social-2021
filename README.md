@@ -33,7 +33,13 @@ Creación de modelos, componente de login, registro, routes y además limpieza d
 
 
 
-### 14.04.2021
+### 15.04.2021
+    New installed:
+    @types/node
+    ts-node
+    angular2-moment 
 
-
-
+- New:
+    - Timeline
+    - Publications
+    - Publication service
